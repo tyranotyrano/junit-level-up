@@ -1,4 +1,4 @@
-package com.tyranotyrano.junitlevelup;
+package com.tyranotyrano;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

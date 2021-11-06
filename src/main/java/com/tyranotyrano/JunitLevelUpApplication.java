@@ -1,4 +1,4 @@
-package com.tyranotyrano.junitlevelup;
+package com.tyranotyrano;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

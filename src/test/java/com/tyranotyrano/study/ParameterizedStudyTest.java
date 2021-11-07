@@ -3,13 +3,18 @@ package com.tyranotyrano.study;
 import static org.assertj.core.api.AssertionsForClassTypes.*;
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.util.Arrays;
+
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.EmptySource;
+import org.junit.jupiter.params.provider.EnumSource;
 import org.junit.jupiter.params.provider.NullAndEmptySource;
 import org.junit.jupiter.params.provider.NullSource;
 import org.junit.jupiter.params.provider.ValueSource;
+
+import com.tyranotyrano.domain.Month;
 
 public class ParameterizedStudyTest {
 
@@ -67,5 +72,13 @@ public class ParameterizedStudyTest {
 	void testNullAndEmptySource (String str) {
 		// then
 		assertThat(str).isBlank();
+	}
+
+	@DisplayName("EnumSource 테스트")
+	@ParameterizedTest
+	@EnumSource(value = Month.class)
+	void testEnumSource(Month month) {
+		// then
+		assertTrue(Arrays.asList(Month.values()).contains(month));
 	}
 }

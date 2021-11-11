@@ -4,12 +4,16 @@ import static org.assertj.core.api.AssertionsForClassTypes.*;
 import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.Arrays;
+import java.util.stream.Stream;
 
+import org.apache.logging.log4j.util.Strings;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.EmptySource;
 import org.junit.jupiter.params.provider.EnumSource;
+import org.junit.jupiter.params.provider.MethodSource;
 import org.junit.jupiter.params.provider.NullAndEmptySource;
 import org.junit.jupiter.params.provider.NullSource;
 import org.junit.jupiter.params.provider.ValueSource;
@@ -80,5 +84,21 @@ public class ParameterizedStudyTest {
 	void testEnumSource(Month month) {
 		// then
 		assertTrue(Arrays.asList(Month.values()).contains(month));
+	}
+
+	@DisplayName("MethodSource 테스트")
+	@ParameterizedTest
+	@MethodSource(value = "provideStringsForIsBlank")
+	void testMethodSource(String input, boolean expected) {
+		assertEquals(expected, Strings.isBlank(input));
+	}
+
+	private static Stream<Arguments> provideStringsForIsBlank() {
+		return Stream.of(
+			Arguments.of(null, true),
+			Arguments.of("", true),
+			Arguments.of("  ", true),
+			Arguments.of("not blank", false)
+		);
 	}
 }

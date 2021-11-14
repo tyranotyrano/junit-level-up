@@ -90,6 +90,7 @@ public class ParameterizedStudyTest {
     @ParameterizedTest
     @MethodSource(value = "provideStringsForIsBlank")
     void testMethodSource(String input, boolean expected) {
+        // then
         assertEquals(expected, Strings.isBlank(input));
     }
 

@@ -16,4 +16,14 @@ public class ExceptionTest {
         assertThatIllegalStateException().isThrownBy(ExceptionGenerator::throwIllegalStateException);
         assertThatIllegalArgumentException().isThrownBy(ExceptionGenerator::throwIllegalArgumentException);
     }
+
+    @DisplayName("Exception 이 발생하지 않는 테스트")
+    @Test
+    void tesNoException() {
+        // given & when
+        int expected = 1;
+        int actual = 1;
+        // then
+        assertThatNoException().isThrownBy(() -> assertThat(expected).isEqualTo(actual));
+    }
 }

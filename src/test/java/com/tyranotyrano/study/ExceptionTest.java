@@ -26,4 +26,12 @@ public class ExceptionTest {
         // then
         assertThatNoException().isThrownBy(() -> assertThat(expected).isEqualTo(actual));
     }
+
+    @DisplayName("메세지를 포함하는 Exception 테스트")
+    @Test
+    void testExceptionWithMessage() {
+        // when & then
+        assertThatIllegalStateException().isThrownBy(ExceptionGenerator::throwIllegalStateExceptionWithMessage)
+                                         .withMessage("throw IllegalStateException");
+    }
 }

@@ -11,4 +11,8 @@ public class ExceptionGenerator {
     public static void throwIllegalArgumentException() {
         throw new IllegalArgumentException();
     }
+
+    public static void throwIllegalStateExceptionWithMessage() {
+        throw new IllegalStateException("throw IllegalStateException");
+    }
 }

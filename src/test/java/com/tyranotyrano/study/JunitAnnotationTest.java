@@ -2,6 +2,7 @@ package com.tyranotyrano.study;
 
 import static org.assertj.core.api.AssertionsForClassTypes.*;
 
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -12,9 +13,15 @@ public class JunitAnnotationTest {
     private int b;
 
     @BeforeEach
-    void before() {
+    void beforeEach() {
+        System.out.println("beforeEach");
         a = 1;
         b = 2;
+    }
+
+    @AfterEach
+    void afterEach() {
+        System.out.println("afterEach");
     }
 
     @DisplayName("@beforeEach 테스트")

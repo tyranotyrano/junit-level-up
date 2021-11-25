@@ -45,4 +45,43 @@ class AssertionsTest {
         // then
         assertThat(actual).isGreaterThanOrEqualTo(expected);
     }
+
+    @DisplayName("containsExactly 테스트")
+    @Test
+    void testContainsExactly() {
+        // given
+        int[] expectedArrays = {1, 2, 3, 4};
+
+        // when
+        int[] actualArrays = {1, 2, 3, 4};
+
+        // then
+        assertThat(actualArrays).containsExactly(expectedArrays);
+    }
+
+    @DisplayName("doesNotContain 테스트")
+    @Test
+    void testDoesNotContain() {
+        // given
+        int[] expectedArrays = {1, 2, 3, 4};
+
+        // when
+        int[] actualArrays = {5, 6, 7, 8};
+
+        // then
+        assertThat(actualArrays).doesNotContain(expectedArrays);
+    }
+
+    @DisplayName("hasSameSizeAs 테스트")
+    @Test
+    void testHasSameSizeAs() {
+        // given
+        int[] expectedArrays = {1, 2, 3, 4};
+
+        // when
+        int[] actualArrays = {5, 6, 7, 8};
+
+        // then
+        assertThat(actualArrays).hasSameSizeAs(expectedArrays);
+    }
 }

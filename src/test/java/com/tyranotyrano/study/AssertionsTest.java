@@ -20,6 +20,26 @@ class AssertionsTest {
         assertThat(actual).isEqualTo(expected);
     }
 
+    @DisplayName("isTrue 테스트")
+    @Test
+    void testIsTrue() {
+        // when
+        boolean actual = true;
+
+        // then
+        assertThat(actual).isTrue();
+    }
+
+    @DisplayName("isFalse 테스트")
+    @Test
+    void testIsFalse() {
+        // when
+        boolean actual = false;
+
+        // then
+        assertThat(actual).isFalse();
+    }
+
     @DisplayName("isLessThanOrEqualTo 테스트")
     @Test
     void testIsLessThanOrEqualTo() {

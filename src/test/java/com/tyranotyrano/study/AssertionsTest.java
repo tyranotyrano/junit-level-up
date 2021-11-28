@@ -1,6 +1,7 @@
 package com.tyranotyrano.study;
 
 import static org.assertj.core.api.AssertionsForClassTypes.*;
+import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -18,6 +19,19 @@ class AssertionsTest {
 
         // then
         assertThat(actual).isEqualTo(expected);
+    }
+
+    @DisplayName("assertEquals 테스트")
+    @Test
+    void testAssertEquals() {
+        // given
+        int expected = 1;
+
+        // when
+        int actual = 1;
+
+        // then
+        assertEquals(actual, expected);
     }
 
     @DisplayName("isTrue 테스트")

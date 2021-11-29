@@ -1,13 +1,14 @@
 package com.tyranotyrano.study;
 
 import static org.assertj.core.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import com.tyranotyrano.utils.ExceptionGenerator;
 
-public class ExceptionTest {
+class ExceptionTest {
 
     @DisplayName("기본 Exception 테스트")
     @Test
@@ -33,5 +34,13 @@ public class ExceptionTest {
         // when & then
         assertThatIllegalStateException().isThrownBy(ExceptionGenerator::throwIllegalStateExceptionWithMessage)
                                          .withMessage("throw IllegalStateException");
+    }
+
+    @DisplayName("assertThrows 테스트")
+    @Test
+    void testAssertThrows() {
+        // when & then
+        assertThrows(IllegalStateException.class, ExceptionGenerator::throwIllegalStateExceptionWithMessage);
+        assertThrows(IllegalArgumentException.class, ExceptionGenerator::throwIllegalArgumentException);
     }
 }

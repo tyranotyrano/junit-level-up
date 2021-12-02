@@ -23,7 +23,37 @@ class JunitRepeatedTest {
     }
 
     @RepeatedTest(5)
-    public void testRepeatedTest() {
+    void testRepeatedTest1() {
         System.out.println("반복 테스트 실행");
+    }
+
+    @RepeatedTest(value = 5, name = RepeatedTest.LONG_DISPLAY_NAME)
+    void testRepeatedTest2() {
+        System.out.println("반복 테스트 실행");
+    }
+
+    @RepeatedTest(value = 5, name = RepeatedTest.SHORT_DISPLAY_NAME)
+    void testRepeatedTest3() {
+        System.out.println("디폴트 설정, 전체 반복 횟수와 현재 인덱스를 display name 으로 사용");
+    }
+
+    @RepeatedTest(value = 5, name = RepeatedTest.CURRENT_REPETITION_PLACEHOLDER)
+    void testRepeatedTest4() {
+        System.out.println("전체 반복 횟수 중 현재 인덱스를 display name 으로 사용");
+    }
+
+    @RepeatedTest(value = 5, name = RepeatedTest.DISPLAY_NAME_PLACEHOLDER)
+    void testRepeatedTest5() {
+        System.out.println("메소드 이름을 그대로 display name 으로 사용");
+    }
+
+    @RepeatedTest(value = 5, name = RepeatedTest.TOTAL_REPETITIONS_PLACEHOLDER)
+    void testRepeatedTest6() {
+        System.out.println("전체 횟수를 display name 으로 사용");
+    }
+
+    @RepeatedTest(value = 5, name = "custom display name")
+    void testRepeatedTest7() {
+        System.out.println("커스텀으로 반복 테스트 메소드의 이름 부여");
     }
 }

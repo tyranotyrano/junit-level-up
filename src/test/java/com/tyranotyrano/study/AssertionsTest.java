@@ -118,4 +118,18 @@ class AssertionsTest {
         // then
         assertThat(actualArrays).hasSameSizeAs(expectedArrays);
     }
+
+    @DisplayName("assertAll 테스트")
+    @Test
+    void testAssertAll() {
+        // given
+        int a = 1;
+        int b = 2;
+
+        // when & then
+        assertAll(
+            () -> assertThat(a).isEqualTo(1),
+            () -> assertThat(b).isEqualTo(2)
+        );
+    }
 }

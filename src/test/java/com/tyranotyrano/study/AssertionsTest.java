@@ -132,4 +132,24 @@ class AssertionsTest {
             () -> assertThat(b).isEqualTo(2)
         );
     }
+
+    @DisplayName("assertNull 테스트")
+    @Test
+    void testAssertNull() {
+        // given
+        Object object = null;
+
+        // when & then
+        assertNull(object);
+    }
+
+    @DisplayName("assertNotNull 테스트")
+    @Test
+    void testAssertNotNull(){
+        // given
+        Object object = new Object();
+
+        // when & then
+        assertNotNull(object);
+    }
 }

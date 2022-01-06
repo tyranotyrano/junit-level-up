@@ -8,5 +8,5 @@ public abstract class TestCase {
         this.testCaseName = testCaseName;
     }
 
-    public abstract void execute();
+    public abstract void execute(Object... args);
 }

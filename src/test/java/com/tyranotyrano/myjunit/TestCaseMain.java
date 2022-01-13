@@ -7,6 +7,9 @@ public class TestCaseMain {
         new SimpleTestCase("runTest").execute();
 
         // 2. 인자를 받는 테스트 실행
-        new ArgumentTestCase("runTestWithArgs").execute("매개변수 입니다.");
+        new ArgumentTestCase("runTestWithArg").execute("매개변수 입니다.");
+
+        // 3. 인자를 여러개 받는 테스트실행
+        new ManyArgumentsTestCase("runTestWithArgs").execute("사과", "배", "바나나");
     }
 }

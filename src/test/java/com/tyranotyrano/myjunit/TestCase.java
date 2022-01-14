@@ -14,6 +14,14 @@ public abstract class TestCase {
     }
 
     public void execute(Object... args) {
+        before();
+        executeTestCase(args);
+        after();
+    }
+
+    protected void before() {}
+    
+    private void executeTestCase(Object... args) {
         List<Class<?>> paramTypes = Arrays.stream(args)
                                           .map(Object::getClass)
                                           .collect(Collectors.toList());
@@ -26,4 +34,6 @@ public abstract class TestCase {
             throw new RuntimeException(e);
         }
     }
+
+    protected void after() {}
 }

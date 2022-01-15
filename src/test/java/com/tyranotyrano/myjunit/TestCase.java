@@ -16,8 +16,16 @@ public abstract class TestCase {
     public TestCase(String testCaseName) {
         this.testCaseName = testCaseName;
     }
+    public TestResult execute(Object... args){
+        TestResult testResult = createTestResult();
+        executeTestCase(testResult, args);
 
-    public void execute(Object... args) {
+        return testResult;
+    }
+
+    public void execute(TestResult testResult, Object... args) {
+        testResult.startTest();
+
         before();
         executeTestCase(args);
         after();
@@ -41,4 +49,8 @@ public abstract class TestCase {
     }
 
     protected void after() {}
+
+    private TestResult createTestResult() {
+        return new TestResult();
+    }
 }

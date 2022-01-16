@@ -13,10 +13,13 @@ public class TestCaseMain {
         new ArgumentTestCase("runTestWithArg").execute(testResult, "매개변수 입니다.");
         System.out.println();
 
-        // 3. 인자를 여러개 받는 테스트실행
+        // 3. 인자를 여러개 받는 테스트 실행
         new ManyArgumentsTestCase("runTestWithArgs").execute(testResult, "사과", "배", "바나나");
 
-        // 4. 실행한 총 테스트 갯수 출력
+        // 4. 실패 테스트 실행
+        new FailTestCase("runFailTest").execute(testResult);
+
+        // 5. 테스트 실행 결과 출력
         System.out.println("=============================================");
         testResult.printTestCount();
     }
